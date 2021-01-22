@@ -1,12 +1,14 @@
 
-Step-1  Step go to this URL https://github.com/shahzamanbaloch/Shahzaman_Automation_Framework
-Step-2 download Git folder Step-3 unzip the downloaded folder 
-Step-4 Open folder in Visual studio 
-Step-5 Go to Terminal Tab and click on New Terminal 
-Step-6 In the Terminal write npm install 
-Step-7 node_modules/.bin/cypress open 
-step-8 Cypress window Test run option is visible now go to integration =>examples=>pages
-select Todo_List.js select any browser(Chrome or Firefox or EDGE) and click on 
-Step-9 Browser will appear wow, Cypress tests are running :)
+ReadMe.txt 
+Step 1: Clone this repo 
+Step 2: Open the cloned folder in Visual studio code or any editor
+Step 3: Go to Terminal Tab 
+Step 4: click on New Terminal 
+Step 5: Run npm install
+Step 6: Run ./node_modules/.bin/cypress open 
+Step 7: Wait few secounds. Cypress window Test run option is visible 
+Step 7: Now go to INTEGRATION TESTS Folder and Select examples folder
+Step 8: select any browser(Chrome or Firefox or EDGE)
+Step 9: Select Todo_List.js
 
 Thank you :) ...
