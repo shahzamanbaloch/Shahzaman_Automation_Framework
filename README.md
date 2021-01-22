@@ -1,5 +1,4 @@
-# cypress_e2e_testing_framework
- 
+
 Step-1  Step go to this URL https://github.com/shahzamanbaloch/Shahzaman_Automation_Framework
 Step-2 download Git folder Step-3 unzip the downloaded folder 
 Step-4 Open folder in Visual studio 
