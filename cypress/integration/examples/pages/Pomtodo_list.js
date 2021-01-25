@@ -1,121 +1,193 @@
 class Pomtodo_list {
 
     main_title_verfied() {
-        cy.get("a[title='Return to the home page']").contains(' NBS Todo list').should('be.visible');
-        cy.get('h1').contains('Todo list').should('be.visible');
+        const verifyPageTitle = cy.get("a[title='Return to the home page']")
+        verifyPageTitle.contains('NBS Todo list').should('be.visible')
+        const verifyTodoFormHeading = cy.get('h1')
+        verifyTodoFormHeading.contains('Todo list').should('be.visible')
+        return this
     }
 
     btn_check_disability() {
-        cy.get("button[type='submit']").should('be.disabled');
 
+        const CreatetodoButtoninactive = cy.get("button[type='submit']")
+        CreatetodoButtoninactive.should('be.disabled');
+        return this
     }
 
     btn_check_visibilty() {
-        cy.get("button[type='submit']").should('not.be.disabled');
-        cy.get("button[type='submit']").click();
+        const CreateTodoButtonActive = cy.get("button[type='submit']")
+        CreateTodoButtonActive.should('not.be.disabled').click();
+        return this
     }
 
     date_select() {
-        cy.get('.mat-datepicker-toggle-default-icon').click();
-        cy.get('[aria-label="January 29, 2021"] > .mat-calendar-body-cell-content').click();
+
+        const datePickerIconButton = cy.get('.mat-datepicker-toggle-default-icon')
+        datePickerIconButton.should('not.be.disabled').click()
+        const calendar = cy.get('[aria-label="January 29, 2021"] > .mat-calendar-body-cell-content')
+        calendar.click()
+        cy.wait(3000)
+        return this
     }
 
     todo_list_input() {
-        cy.get('#content').click().type('Testcasedesign');
+
+        const toDoListInputField = cy.get('#content')
+        toDoListInputField.click()
+        toDoListInputField.clear()
+        toDoListInputField.type('Testcasedesign');
+        return this
     }
 
     todo_delete_list_input() {
-        cy.get('#content').click().type('DeleteTestcasedesign')
+        const toDoDeleteListInput = cy.get('#content')
+        toDoDeleteListInput.click()
+        toDoDeleteListInput.clear()
+        toDoDeleteListInput.type('DeleteTestcasedesign')
+        return this
     }
 
     todo_one_hundred_input() {
-        cy.get('#content').click().type('Testcasedesignsdsdsfdsfdsfsffdsfdsfjdfjdsfdsfjdsjfdskjfjdfdfdsfdsfsdjfsjfskfsdfsjdfkjdsfdsjfdskjfdskjf')
+        const OneHundredTwoCharacters = cy.get('#content')
+        OneHundredTwoCharacters.click()
+        OneHundredTwoCharacters.clear()
+        OneHundredTwoCharacters.type('Testcasedesignsdsdsfdsfdsfsffdsfdsfjdfjdsfdsfjdsjfdskjfjdfdfdsfdsfsdjfsjfskfsdfsjdfkjdsfdsjfdskjfdskjf')
+        return this
     }
 
     todo_negative_input() {
-        cy.get('#content').click().type('11111111Testcasedesignsdsdsfdsfdsfsffdsfdsfjdfjdsfdsfjdsjfdskjfjdfdfdsfdsfsdjfsjfskfsdfsjdfkjdsfdsjfdskjfdskjfhsahdhdshfdshfdhfdhfdhfdhfdhfdhdhfdhfdhfhdfhdfdhfhfdhfdf')
+        const OneHundredSixtySixCharacters = cy.get('#content')
+        OneHundredSixtySixCharacters.click()
+        OneHundredSixtySixCharacters.clear()
+        OneHundredSixtySixCharacters.type('11111111Testcasedesignsdsdsfdsfdsfsffdsfdsfjdfjdsfdsfjdsjfdskjfjdfdfdsfdsfsdjfsjfskfsdfsjdfkjdsfdsjfdskjfdskjfhsahdhdshfdshfdhfdhfdhfdhfdhfdhdhfdhfdhfhdfhdfdhfhfdhfdf')
+
+        const oneHundredSixtysixTodo = cy.get('11111111Testcasedesignsdsdsfdsfdsfsffdsfdsfjdfjdsfdsfjdsjfdskjfjdfdfdsfdsfsdjfsjfskfsdfsjdfkjdsfdsjfdskjfdskjfhsahdhdshfdshfdhfdhfdhfdhfdhfdhdhfdhfdhfhdfhdfdhfhfdhfdf')
+        oneHundredSixtysixTodo.should('not.exist');
+        return this
     }
 
     todo_postive_input() {
-        cy.get('#content').click().type('Testexecution');
+        const todoPositiveTestcase = cy.get('#content')
+        todoPositiveTestcase.click()
+        todoPositiveTestcase.clear()
+        todoPositiveTestcase.type('Testexecution');
+        return this
     }
 
     todo_underscore_input() {
-        cy.get('#content').click().type('.@@')
+        const todunderScore = cy.get('#content')
+        todunderScore.click()
+        todunderScore.clear()
+        todunderScore.type('.@@')
+        return this
     }
 
     todo_zero_input() {
-        cy.get('#content').click().type('0-')
+        const toDoZero = cy.get('#content')
+        toDoZero.click()
+        toDoZero.clear()
+        toDoZero.type('0-')
+        return this
     }
 
-
     todo_postive_two_input() {
-        cy.get('#content').click().type('Testexecution2')
+        const todoPositiveTwo = cy.get('#content')
+        todoPositiveTwo.click()
+        todoPositiveTwo.clear()
+        todoPositiveTwo.type('Testexecution2')
+        return this
+    }
+
+    logo_NBS() {
+        const LogoNbs = cy.get('.logo-wrapper')
+        LogoNbs.click()
+        cy.clearLocalStorage()
+        return this
     }
 
     check_todo_content() {
-        cy.get('.mat-row > .cdk-column-content').contains('Testcasedesign')
+        const checkTodoContent = cy.get('.mat-row > .cdk-column-content')
+        checkTodoContent.contains('Testcasedesign').should('be.visible')
+        return this
     }
 
     check_todo_delete_content() {
-        cy.get('.mat-row > .cdk-column-content').contains('DeleteTestcasedesign')
+        const todoDeletContent = cy.get('.mat-row > .cdk-column-content')
+        todoDeletContent.contains('DeleteTestcasedesign').should('be.visible')
+        return this
     }
 
     check_todo_one_hundred_content() {
-        cy.get('.mat-row > .cdk-column-content').contains('Testcasedesignsdsdsfdsfdsfsffdsfdsfjdfjdsfdsfjdsjfdskjfjdfdfdsfdsfsdjfsjfskfsdfsjdfkjdsfdsjfdskjfdskjf')
+        const checkTodoHundredContent = cy.get('.mat-row > .cdk-column-content')
+        checkTodoHundredContent.contains('Testcasedesignsdsdsfdsfdsfsffdsfdsfjdfjdsfdsfjdsjfdskjfjdfdfdsfdsfsdjfsjfskfsdfsjdfkjdsfdsjfdskjfdskjf')
+        return this
     }
 
     check_postive_content() {
 
-        cy.get('.mat-row > .cdk-column-content').contains('Testexecution')
+        const checkPositiveContent = cy.get('.mat-row > .cdk-column-content')
+        checkPositiveContent.contains('Testexecution').should('be.visible')
+        return this
     }
 
     check_postive_second_content() {
 
-        cy.get(':nth-child(2) > .cdk-column-content').contains('Testexecution2')
+        const checkPositiveSecondContent = cy.get(':nth-child(2) > .cdk-column-content')
+        checkPositiveSecondContent.contains('Testexecution2').should('be.visible')
     }
 
     check_underscore_content() {
 
-        cy.get('.mat-row > .cdk-column-content').contains('.@@')
+        const checkUnderscoreContent = cy.get('tbody[role="rowgroup"] > tr:nth-of-type(1) > .cdk-column-content')
+        checkUnderscoreContent.contains('.@@').should('be.visible')
+        return this
     }
 
     check_zero_content() {
 
-        cy.get(':nth-child(2) > .cdk-column-content').contains('0-')
+        const checkZeroContent = cy.get(':nth-child(2) > .cdk-column-content')
+        checkZeroContent.contains('0-').should('be.visible')
+        return this
     }
 
     check_create_date() {
-        cy.get('.mat-row > .cdk-column-created').contains('Jan 22, 2021');
+        const checkTodoCreateDate = cy.get('.mat-row > .cdk-column-created')
+        checkTodoCreateDate.contains('Jan 25, 2021').should('be.visible')
+        return this
     }
 
     check_end_date() {
-        cy.get('.mat-row > .cdk-column-due').contains('Jan 29, 2021');
+        const checkEndDate = cy.get('.mat-row > .cdk-column-due')
+        checkEndDate.contains('Jan 29, 2021')
+        return this
     }
 
     check_three_dots() {
-        cy.get(':nth-child(1) > .align-right > .mat-focus-indicator > .mat-button-wrapper > .mat-icon').click()
+        const checkThreeDots = cy.get(':nth-child(1) > .align-right > .mat-focus-indicator > .mat-button-wrapper > .mat-icon')
+        checkThreeDots.should('be.visible').click()
         cy.get(':nth-child(2) > .mat-icon').should('not.be.disabled').click()
         cy.clearLocalStorage()
+        return this
     }
 
     check_deletebtn() {
-        cy.get("button[class='mat-focus-indicator mat-menu-trigger mat-icon-button mat-button-base']").click()
-        cy.wait(8000)
+        const deleteButton = cy.get("button[class='mat-focus-indicator mat-menu-trigger mat-icon-button mat-button-base']")
+        deleteButton.should('not.be.disabled').click()
         cy.get('div[class="cdk-overlay-container"] button:nth-child(2)').should('not.be.disabled').click()
         cy.clearLocalStorage()
-        cy.reload()
+        return this
     }
 
     checkbox_btn() {
-        cy.get('#mat-checkbox-2 > .mat-checkbox-layout > .mat-checkbox-inner-container').click()
-        cy.get('#mat-checkbox-5 > .mat-checkbox-layout > .mat-checkbox-inner-container').click()
+        const checkBoxButton = cy.get('tbody > :nth-child(1) > .cdk-column-done')
+        checkBoxButton.click()
+        cy.wait(500)
+        cy.get('tbody[role="rowgroup"] > tr:nth-of-type(1) > .cdk-column-done').click()
         cy.get("button[class='mat-focus-indicator mat-flat-button mat-button-base mat-accent']").click()
         cy.clearLocalStorage()
+        return this
     }
-
-
 }
-
 
 export default Pomtodo_list;
